@@ -29,7 +29,7 @@ Kirby::plugin('salinapl/lst-calendar',
                             ];
                         })->values();
                     },
-                    
+
                     'eventsCollection' => function($site) {
                         // Initialize empty structure container
                         $allEvents = new Kirby\Cms\Structure();
@@ -48,7 +48,7 @@ Kirby::plugin('salinapl/lst-calendar',
                         return $allEvents->map(function($item) {
                             return [
                                 'id' => $item->id(),
-                                'event' => $item->title()->value(),
+                                'event' => $item->event(),
                                 'start' => $item->start(),
                                 'expire' => $item->expire(),
                             ];
