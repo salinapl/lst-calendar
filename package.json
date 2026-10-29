@@ -1,0 +1,21 @@
+{
+  "name": "lst-calendar",
+  "version": "1.0.0",
+  "description": "Kirby CMS plugin for LibSignTool",
+  "homepage": "https://github.com/salinapl/lst-calendar#readme",
+  "bugs": {
+    "url": "https://github.com/salinapl/lst-calendar/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salinapl/lst-calendar.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx -y kirbyup@next src/index.js --watch",
+    "build": "npx -y kirbyup@next src/index.js"
+  }
+}

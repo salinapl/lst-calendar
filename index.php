@@ -3,7 +3,7 @@
 Kirby::plugin('salinapl/lst-calendar',
     [
         'areas' => [
-            'lst-calendar' => function() {
+            'lst-calendar' => function($kirby) {
                 return [
                     // Panel Config
                     'label' => 'LST Calendar',
@@ -28,7 +28,7 @@ Kirby::plugin('salinapl/lst-calendar',
                                 return [
                                     // the Vue component can be defined in the
                                     // `index.js` of your plugin
-                                    'component' => 'k-lst-calendar-view',
+                                    'component' => 'lst-calendar',
 
                                     // the document title for the current view
                                     'title' => 'LST Calendar',
