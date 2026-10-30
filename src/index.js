@@ -1,6 +1,6 @@
 import LstCalendar from "./components/LstCalendar.vue";
 panel.plugin('salinapl/lst-calendar', {
     components: {
-        'lst-calendar': LstCalendar
+        'k-lst-calendar-view': LstCalendar
     },
 });
