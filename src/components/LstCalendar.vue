@@ -1,45 +1,26 @@
-<!--- !!! OLD !!!
-<template>
-    <k-panel-inside>
-        <k-header>LST Calendar</k-header>
-        <h2>Kirby Collections</h2>
-        <h3>Slides Collection</h3>
-        <ul>
-            <li v-for="item in slidesCollection" :key="item.id">
-                <p>Item Title:{{ item.title }}</p>
-                <img :src="item.image" style="max-width: 300px;"></img>
-                <p>Start:{{ item.start }}</p>
-                <p>Expire:{{ item.expire }}</p>
-            </li>
-        </ul>
-        <h3>Events Collection</h3>
-        <ul>
-            <li v-for="item in eventsCollection" :key="item.id">
-                <p>Item Title:{{ item.title }}</p>
-                <p>Start:{{ item.start }}</p>
-                <p>Expire:{{ item.expire }}</p>
-            </li>
-        </ul>
-    </k-panel-inside>
-</template>
-
-<script>
-    export default {
-        props: {
-            // computed by the PHP part of the field in the plugin's index.php
-            slidesCollection: Array,
-            eventsCollection: Array
-        },
-        setup(props) {
-            console.log(`The slides collection includes:\n${props.slidesCollection}\n`);
-            console.log(`The events collection includes:\n${props.eventsCollection}\n`);
-        }
-    }    
-</script>
--->
-
 <script setup>
-    const prop = defineProps({
+    // FullCalendar app
+    import FullCalendar from "@fullcalendar/vue3";
+
+    // Stylesheets
+    import '@fullcalendar/vue3/skeleton.css'; // ALWAYS NEED SKELETON
+    import '@fullcalendar/vue3/themes/monarch/theme.css'; // YOUR THEME
+    import '@fullcalendar/vue3/themes/monarch/palettes/blue.css'; // YOUR THEME'S PALETTE
+
+    // Controllers
+    import useCalendarController from '../controllers/calendarController.js';
+    
+    // Use computed for a dynamic calendar
+    import { computed } from "vue";
+
+    console.log('Loading calendar...');
+    const calendarOptions = computed(() => {
+        return useCalendarController(props);
+    });
+    console.log('Calendar load complete!');
+
+    // Load collections into props
+    const props = defineProps({
         slidesCollection: Array,
         eventsCollection: Array
     });
@@ -48,5 +29,6 @@
 <template>
     <k-panel-inside>
         <k-header>LST Calendar</k-header>
+        <FullCalendar :options="calendarOptions" />
     </k-panel-inside>   
 </template>

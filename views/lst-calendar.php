@@ -4,25 +4,17 @@ return [
     // the Panel patterns must not start with 'panel/',
     // the `panel` slug is automatically prepended.
     'pattern' => 'lst-calendar',
+
+    // Action executes when the view is called
     'action'  => function () {
-
-        // view routes return a simple array,
-        // which will be injected into our Vue app;
-        // the array can control the loaded Vue component,
-        // props for the component and settings for the current view
-        // (like breadcrumb, title, active search type etc.)
-
         return [
-            // the Vue component can be defined in the
-            // `index.js` of your plugin
+            // The component that will run in ../src/index.js
             'component' => 'k-lst-calendar-view',
 
             // the document title for the current view
             'title' => 'LST Calendar',
 
-            // props will be directly available in the
-            // Vue component. It's a super convenient way
-            // to send backend data to the Panel
+            // Declare props that will be passed to Vue
             'props' => [
                 'slidesCollection' => function() {
                     $site = kirby()->site();
@@ -45,7 +37,7 @@ return [
                             'title' => $item->filename(),
                             'image' => $item->url(),
                             'start' => $item->start()->value(),
-                            'expire' => $item->expire()->value(),
+                            'end' => $item->expire()->value(),
                             'tags' => $item->tags()->split(),
                         ];
                     })->values();
@@ -71,7 +63,7 @@ return [
                             'id' => $item->id(),
                             'title' => $item->event()->value(),
                             'start' => $item->start()->value(),
-                            'expire' => $item->expire()->value(),
+                            'end' => $item->expire()->value(),
                         ];
                     })->values();
                 }

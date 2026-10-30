@@ -1,2 +1,10 @@
+# Build Files
+/index.js
+/index.css
+
+# Development Files
+/index.dev.js
+
+# Node Packages
 /node_modules
 /package-lock.json
