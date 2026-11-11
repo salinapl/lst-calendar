@@ -3,11 +3,12 @@ import themePlugin from "@fullcalendar/vue3/themes/forma"; // YOUR THEME
 import dayGridPlugin from "@fullcalendar/vue3/daygrid";
 import interactionPlugin from "@fullcalendar/vue3/interaction";
 
-export default function useCalendarController(props){
+export default function useCalendarController(props, onEventClick){
     // Format slides and events collection for FullCalendar configuration
     const formattedEvents = props.slidesCollection.map(event => {
         return {
             title: event.title,
+            image: event.image,
             start: event.start,
             end: event.end
         }
@@ -43,6 +44,8 @@ export default function useCalendarController(props){
         }
         */
 
-        events: formattedEvents
+        events: formattedEvents,
+        eventClick: onEventClick,
     }
 }
+
