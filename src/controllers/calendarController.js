@@ -1,5 +1,5 @@
 // FullCalendar plugins
-import themePlugin from "@fullcalendar/vue3/themes/monarch"; // YOUR THEME
+import themePlugin from "@fullcalendar/vue3/themes/forma"; // YOUR THEME
 import dayGridPlugin from "@fullcalendar/vue3/daygrid";
 import interactionPlugin from "@fullcalendar/vue3/interaction";
 

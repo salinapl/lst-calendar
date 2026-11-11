@@ -4,8 +4,8 @@
 
     // Stylesheets
     import '@fullcalendar/vue3/skeleton.css'; // ALWAYS NEED SKELETON
-    import '@fullcalendar/vue3/themes/monarch/theme.css'; // YOUR THEME
-    import '@fullcalendar/vue3/themes/monarch/palettes/blue.css'; // YOUR THEME'S PALETTE
+    import '@fullcalendar/vue3/themes/forma/theme.css'; // YOUR THEME
+    import '@fullcalendar/vue3/themes/forma/palettes/blue.css'; // YOUR THEME'S PALETTE
 
     // Controllers
     import useCalendarController from '../controllers/calendarController.js';
