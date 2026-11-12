@@ -16,7 +16,7 @@ A Kirby CMS website installation with the following requirements:
 
 ### Installing
 * **Manual:** Download the zip and extract into your site/plugins folder
-* **Composer:** ```composer require salinapl/libsigntool```
+* **Composer:** ```composer require salinapl/lst-calendar```
 * **Git Submodule install:** ```git submodule add https://github.com/salinapl/lst-calendar.git site/plugins/lst-calendar```
 
 ### Executing program
