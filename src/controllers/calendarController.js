@@ -8,16 +8,20 @@ export default function useCalendarController(props, onEventClick){
     const formattedEvents = props.slidesCollection.map(event => {
         return {
             title: event.title,
-            image: event.image,
             start: event.start,
-            end: event.end
+            end: event.end,
+            url: event.url,
+            extendedProps: {
+                image: event.image,
+            }
         }
     });
     formattedEvents.push(...props.eventsCollection.map(event => {
         return {
             title: event.title,
             start: event.start,
-            end: event.end
+            end: event.end,
+            url: event.url,
         }
     }));
 
@@ -28,22 +32,9 @@ export default function useCalendarController(props, onEventClick){
         headerToolbar: { 
             start: 'prev,next today',
             center: 'title',
-            end: 'dayGridDay,dayGridWeek,dayGridMonth' 
-        }, // buttons for switching between views
+            end: 'dayGridDay,dayGridWeek,dayGridMonth' // buttons for switching between views
+        }, 
         displayEventEnd: true,
-
-        /*
-        // Optional: Specific options for each view
-        views: {
-            dayGridDay: {
-            },
-            dayGridWeek: {
-            },
-            dayGridMonth: {
-            },
-        }
-        */
-
         events: formattedEvents,
         eventClick: onEventClick,
     }

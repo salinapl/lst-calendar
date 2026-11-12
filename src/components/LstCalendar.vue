@@ -31,6 +31,7 @@
     });
     const overlayPosition = ref({ top: '0px', left: '0px' });
 
+
     // Function that is passed to controller
     function openOverlay(info) {
         info.jsEvent.preventDefault();
@@ -38,10 +39,10 @@
 
         selectedEvent.value = {
             title: info.event.title,
+            start: info.event.start || '',
+            end: info.event.end || '',
             url: info.event.url || '',
             image: info.event.extendedProps?.image || '',
-            start: info.event.start || '',
-            end: info.event.end || ''
         };
 
         const rect = info.el.getBoundingClientRect();
@@ -96,12 +97,12 @@
         >
             <div class="lst-overlay-header">
                 <h3 id="lst-overlay-title">{{ selectedEvent.title }}</h3>
-                <a v-if="selectedEvent.url" :href="selectedEvent.url" id="lst-overlay-link">Event Page</a>
+                <a v-if="selectedEvent.url" :href="selectedEvent.url" id="lst-overlay-link">To Page</a>
                 <button @click="closeOverlay" id="lst-overlay-close" aria-label="Close">&times;</button>
             </div>
             <img v-if="selectedEvent.image" :src="selectedEvent.image" id="lst-overlay-image" alt=""></img>
-            <p id="lst-overlay-start">Start: {{ selectedEvent.start }}</p>
-            <p id="lst-overlay-end">End: {{ selectedEvent.end }}</p>
+            <p id="lst-overlay-start">Start: {{ selectedEvent.start.toLocaleString('en-US', {dateStyle: 'short', timeStyle: 'short'}) }}</p>
+            <p id="lst-overlay-end">End: {{ selectedEvent.end.toLocaleString('en-US', {dateStyle: 'short', timeStyle: 'short'}) }}</p>
         </div>
     </k-panel-inside>   
 </template>
@@ -126,6 +127,14 @@
     .lst-overlay-header h3 {
         margin: 0;
         font-size: 16px;
+    }
+    #lst-overlay-link {
+        padding: 0.25rem;
+        border-radius: 5px;
+        background-color: #0dcbff;
+    }
+    #lst-overlay-link:hover {
+        background-color: color-mix(in srgb, #0dcbff 100%, #000000 10%);
     }
     #lst-overlay-close {
         background: none;

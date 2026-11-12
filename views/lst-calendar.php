@@ -39,6 +39,7 @@ return [
                             'start' => $item->start()->value(),
                             'end' => $item->expire()->value(),
                             'tags' => $item->tags()->split(),
+                            'url' => $item->panel()->url(),
                         ];
                     })->values();
                 },
@@ -64,6 +65,7 @@ return [
                             'title' => $item->event()->value(),
                             'start' => $item->start()->value(),
                             'end' => $item->expire()->value(),
+                            'url' => $item->parent()->panel()->url(),
                         ];
                     })->values();
                 }
