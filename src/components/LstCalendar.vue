@@ -97,7 +97,7 @@
         >
             <div class="lst-overlay-header">
                 <h3 id="lst-overlay-title">{{ selectedEvent.title }}</h3>
-                <a v-if="selectedEvent.url" :href="selectedEvent.url" id="lst-overlay-link">To Page</a>
+                <a v-if="selectedEvent.url" :href="selectedEvent.url" id="lst-overlay-link" target="_blank">To Page</a>
                 <button @click="closeOverlay" id="lst-overlay-close" aria-label="Close">&times;</button>
             </div>
             <img v-if="selectedEvent.image" :src="selectedEvent.image" id="lst-overlay-image" alt=""></img>
