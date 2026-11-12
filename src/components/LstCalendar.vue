@@ -97,12 +97,14 @@
         >
             <div class="lst-overlay-header">
                 <h3 id="lst-overlay-title">{{ selectedEvent.title }}</h3>
-                <a v-if="selectedEvent.url" :href="selectedEvent.url" id="lst-overlay-link" target="_blank">To Page</a>
-                <button @click="closeOverlay" id="lst-overlay-close" aria-label="Close">&times;</button>
+                <div class="lst-overlay-actions">
+                    <a v-if="selectedEvent.url" :href="selectedEvent.url" id="lst-overlay-link" target="_blank">To Page</a>
+                    <button @click="closeOverlay" id="lst-overlay-close" aria-label="Close">&times;</button>
+                </div>
             </div>
             <img v-if="selectedEvent.image" :src="selectedEvent.image" id="lst-overlay-image" alt=""></img>
-            <p id="lst-overlay-start">Start: {{ selectedEvent.start.toLocaleString('en-US', {dateStyle: 'short', timeStyle: 'short'}) }}</p>
-            <p id="lst-overlay-end">End: {{ selectedEvent.end.toLocaleString('en-US', {dateStyle: 'short', timeStyle: 'short'}) }}</p>
+            <p id="lst-overlay-text"><strong>Start:</strong> {{ selectedEvent.start.toLocaleString('en-US', {dateStyle: 'short', timeStyle: 'short'}) }}</p>
+            <p id="lst-overlay-text"><strong>End:</strong> {{ selectedEvent.end.toLocaleString('en-US', {dateStyle: 'short', timeStyle: 'short'}) }}</p>
         </div>
     </k-panel-inside>   
 </template>
@@ -112,7 +114,7 @@
         position: absolute;
         z-index: 1000;
         width: 260px;
-        padding: 16px;
+        padding: 1rem;
         background: #ffffff;
         border: 1px solid #ddd;
         border-radius: 8px;
@@ -122,14 +124,21 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 8px;
+        margin-bottom: 0.25rem;
     }
     .lst-overlay-header h3 {
         margin: 0;
-        font-size: 16px;
+        padding: 0.5rem 0;
+        font-size: 1rem;
+    }
+    .lst-overlay-actions {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 0.25rem;
     }
     #lst-overlay-link {
-        padding: 0.25rem;
+        padding: 0.5rem;
         border-radius: 5px;
         background-color: #0dcbff;
     }
@@ -137,9 +146,17 @@
         background-color: color-mix(in srgb, #0dcbff 100%, #000000 10%);
     }
     #lst-overlay-close {
+        padding: 0.5rem;
         background: none;
-        border: none;
-        font-size: 20px;
+        border-radius: 5px;
+        font-size: 1.25rem;
         cursor: pointer;
+    }
+    #lst-overlay-close:hover {
+        background: color-mix(in srgb, #ffffff 100%, #000000 10%);
+    }
+    #lst-overlay-text {
+        padding-top: 0.25rem;
+        font-size: 1rem;
     }
 </style>
