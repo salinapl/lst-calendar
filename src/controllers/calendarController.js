@@ -1,22 +1,27 @@
 // FullCalendar plugins
-import themePlugin from "@fullcalendar/vue3/themes/monarch"; // YOUR THEME
+import themePlugin from "@fullcalendar/vue3/themes/forma"; // YOUR THEME
 import dayGridPlugin from "@fullcalendar/vue3/daygrid";
 import interactionPlugin from "@fullcalendar/vue3/interaction";
 
-export default function useCalendarController(props){
+export default function useCalendarController(props, onEventClick){
     // Format slides and events collection for FullCalendar configuration
     const formattedEvents = props.slidesCollection.map(event => {
         return {
             title: event.title,
             start: event.start,
-            end: event.end
+            end: event.end,
+            url: event.url,
+            extendedProps: {
+                image: event.image,
+            }
         }
     });
     formattedEvents.push(...props.eventsCollection.map(event => {
         return {
             title: event.title,
             start: event.start,
-            end: event.end
+            end: event.end,
+            url: event.url,
         }
     }));
 
@@ -27,22 +32,11 @@ export default function useCalendarController(props){
         headerToolbar: { 
             start: 'prev,next today',
             center: 'title',
-            end: 'dayGridDay,dayGridWeek,dayGridMonth' 
-        }, // buttons for switching between views
+            end: 'dayGridDay,dayGridWeek,dayGridMonth' // buttons for switching between views
+        }, 
         displayEventEnd: true,
-
-        /*
-        // Optional: Specific options for each view
-        views: {
-            dayGridDay: {
-            },
-            dayGridWeek: {
-            },
-            dayGridMonth: {
-            },
-        }
-        */
-
-        events: formattedEvents
+        events: formattedEvents,
+        eventClick: onEventClick,
     }
 }
+
