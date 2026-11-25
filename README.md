@@ -16,7 +16,7 @@ A Kirby CMS website installation with the following requirements:
 
 ### Installing
 * **Manual:** Download the zip and extract into your site/plugins folder
-* **Composer:** ```composer require salinapl/libsigntool```
+* **Composer:** ```composer require salinapl/lst-calendar```
 * **Git Submodule install:** ```git submodule add https://github.com/salinapl/lst-calendar.git site/plugins/lst-calendar```
 
 ### Executing program
@@ -33,13 +33,14 @@ npm run build
 
 ## Customizing the Calendar
 
-The calendar should be fully customizable, as long as you don't touch anything to do with events. To get an idea of all possibilities, you can view [FullCalendar's Demo](https://fullcalendar.io/demos)
+The calendar should be fully customizable, as long as you don't touch anything to do with events. To get an idea of all possibilities, you can view [FullCalendar's Demo](https://fullcalendar.io/demos).
 
 ### Theme
 The current theme shipped with the plugin is FullCalendar's ***Forma*** theme in ***blue***. When changing the theme and color, you need to verify the following:
 
-**LstCalendar.vue:** The stylesheet import for the theme and palette are correct.
-**calendarController.js:** The "themePlugin" import references the correct theme.
+* **LstCalendar.vue:** The stylesheet import for the theme and palette are correct.
+
+* **calendarController.js:** The "themePlugin" import references the correct theme.
 
 >[!IMPORTANT]
 >Some styles are not a part of the theme. Example: The "To Page" button's background. Those styles can be changed at the bottom of the **LstCalendar.vue** file.
