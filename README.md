@@ -60,6 +60,8 @@ There are many ways the calendar can be displayed to editors. If you want to fin
 
 * 1.0.0
     * Initial Release
+* 1.0.1
+    * Plugin polishing
 
 ## License
 
