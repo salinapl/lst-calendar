@@ -1,0 +1,12 @@
+{
+    "name": "salinapl/lst-calendar",
+    "description": "A simple calendar overview for the LibSignTool",
+    "version": "1.0.0",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Salina Public Library",
+            "email": "tech.lib@salinapublic.org"
+        }
+    ]
+}

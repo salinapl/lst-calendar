@@ -1,7 +1,7 @@
 {
   "name": "lst-calendar",
   "version": "1.0.0",
-  "description": "Kirby CMS plugin for LibSignTool",
+  "description": "A simple calendar overview for the LibSignTool",
   "homepage": "https://github.com/salinapl/lst-calendar#readme",
   "bugs": {
     "url": "https://github.com/salinapl/lst-calendar/issues"
@@ -11,12 +11,12 @@
     "url": "git+https://github.com/salinapl/lst-calendar.git"
   },
   "license": "ISC",
-  "author": "",
+  "author": "Salina Public Library",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "dev": "npx -y kirbyup@next src/index.js --watch",
-    "build": "npx -y kirbyup@next src/index.js"
+    "dev": "npx -y kirbyup@^4.0.0 src/index.js --watch",
+    "build": "npx -y kirbyup@^4.0.0 src/index.js"
   },
   "dependencies": {
     "@fullcalendar/vue3": "^7.1.3",
